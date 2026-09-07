@@ -8,6 +8,11 @@
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge\&logo=github)](https://github.com/)
 
 ---
+---
+
+### 🌐 Live Demo
+
+🚀 **[View Live Demo](https://amazon-clone-web-nu.vercel.app/)**
 
 ## 🌟 Project Overview
 
@@ -144,17 +149,9 @@ For a better development experience:
 
 Your project will open automatically in the browser.
 
----
 
-## 🌐 Live Demo
 
-> 🚀 Add your deployed website URL here.
 
-```text
-YOUR_LIVE_DEMO_URL
-```
-
-If you deploy the project using GitHub Pages, Netlify, or Vercel, replace the placeholder above with your actual live URL.
 
 ---
 
