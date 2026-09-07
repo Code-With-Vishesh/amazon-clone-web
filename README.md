@@ -150,36 +150,22 @@ For a better development experience:
 Your project will open automatically in the browser.
 
 
-
-
-
 ---
 
 ## 📸 Screenshots
 
-Add screenshots of your project here to make the repository more attractive to recruiters and visitors.
-
 ### 🏠 Homepage
-
-```text
-Add your homepage screenshot here
-```
+![Homepage](https://raw.githubusercontent.com/Code-With-Vishesh/amazon-clone-web/8de20887961de4aae79abd411b314cc8b9ad212b/home%20page.png)
 
 ### 🛍️ Product Section
-
-```text
-Add your product section screenshot here
-```
+![Product Section](https://raw.githubusercontent.com/Code-With-Vishesh/amazon-clone-web/8de20887961de4aae79abd411b314cc8b9ad212b/All%20products.png)
 
 ### 📱 Responsive View
+![Responsive View](https://raw.githubusercontent.com/Code-With-Vishesh/amazon-clone-web/3f4ab9acf806c3ceccddf186fd2f91a36c1b8b3e/Mobile%20responsive%20view.png)
 
-```text
-Add your mobile/responsive screenshot here
-```
-
-> 💡 **Tip:** A GitHub README with high-quality screenshots immediately gives recruiters a better understanding of your project.
 
 ---
+
 
 ## 🎯 Learning Objectives
 
