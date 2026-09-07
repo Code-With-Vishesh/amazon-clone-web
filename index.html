@@ -6,100 +6,127 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg" />
-    <title>Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in</title>
+    <title>Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Karo.in</title>
 
     <!--css file-->
     <link rel="stylesheet" href="style.css" />
+
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!--font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- ============ TOASTS ============ -->
+    <div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- ============ HEADER ============ -->
     <header class="header">
         <div class="container container-header">
-            <div class="logo-container border-white">
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-controls="sidebar-container-navigation-id" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <a href="#" class="logo-container border-white" id="logo-home-link" aria-label="Karo.in home">
                 <div class="logo"></div>
                 <span class="dotin">.in</span>
-            </div>
+            </a>
 
-            <div class="address-container border-white">
-                <p class="hello">Hello</p>
+            <button class="address-container border-white" id="delivery-location-btn" aria-haspopup="dialog">
+                <p class="hello">Delivering to <span id="delivery-pincode">302001</span></p>
                 <div class="icon-address">
                     <i class="fa-solid fa-location-dot icon-location"></i>
-                    <p>Select your address</p>
+                    <p>Update location</p>
                 </div>
-            </div>
+            </button>
 
-            <div class="search-container">
-                <select class="search-select">
-                    <option>All</option>
+            <form class="search-container" id="search-form" role="search">
+                <label for="search-select" class="visually-hidden">Search category</label>
+                <select class="search-select" id="search-select">
+                    <option value="all">All</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="mobiles">Mobiles</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="home">Home &amp; Kitchen</option>
+                    <option value="books">Books</option>
+                    <option value="beauty">Beauty</option>
+                    <option value="sports">Sports</option>
+                    <option value="toys">Toys</option>
                 </select>
-                <input type="text" class="search-input" />
-                <div class="search-icon">
+                <label for="search-input" class="visually-hidden">Search products</label>
+                <input type="text" class="search-input" id="search-input" placeholder="Search Karo.in" autocomplete="off" />
+                <div class="search-suggestions" id="search-suggestions" role="listbox" hidden></div>
+                <button type="submit" class="search-icon" aria-label="Search">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
+                </button>
+            </form>
 
-            </div>
-
-            <div class="language-container border-white">
+            <button class="language-container border-white" id="language-btn" aria-haspopup="dialog">
                 <p>English</p>
                 <div class="lauguge-image">
-                    <img
+                    <img alt=""
                         src="https://media.istockphoto.com/vectors/vector-flag-of-the-republic-of-india-proportion-23-the-national-flag-vector-id1051236720?k=20&m=1051236720&s=612x612&w=0&h=ATObRTHmTosADa9zaB2dQPn_VAQmG1XYH2x92kzc304=" />
                 </div>
-            </div>
+            </button>
 
-            <div class="login-container border-white">
-                <p>Hello,<span>sign in</span></p>
-                <p class="account">Account & Lists</p>
-            </div>
+            <button class="login-container border-white" id="account-btn" aria-haspopup="dialog">
+                <p class="account-greeting">Hello, <span id="account-name">sign in</span></p>
+                <p class="account">Account &amp; Lists</p>
+            </button>
 
-            <div class="return-order-container">
+            <button class="return-order-container border-white" id="orders-nav-btn">
                 <p>Returns
-                <div class="order">& Orders</div>
+                <span class="order">&amp; Orders</span>
                 </p>
-            </div>
+            </button>
 
-            <div class="cart-container border-white">
-                <i class="fa-solid fa-cart-shopping"></i>
+            <button class="cart-container border-white" id="cart-nav-btn" aria-label="Cart">
+                <span class="cart-icon-wrap">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </span>
                 Cart
-            </div>
+            </button>
         </div>
     </header>
 
     <!--navigation-->
-    <nav class="nav">
+    <nav class="nav" aria-label="Primary">
         <div class="container container-nav">
             <ul>
                 <li class="border-white" id="open-nav-sidebar">
-                    <span class="open-nav-slider">
+                    <button class="open-nav-slider" aria-controls="sidebar-container-navigation-id" aria-expanded="false">
                         <i class="fa-solid fa-bars"></i>
                         All
-                    </span>
+                    </button>
                 </li>
-                <li class="border-white"><a href="#">Best Sellers</a></li>
-                <li class="border-white"><a href="#">Today's Deals</a></li>
-                <li class="border-white"><a href="#">Mobiles</a></li>
-                <li class="border-white"><a href="#">Customer Service</a></li>
-                <li class="border-white"><a href="#">Electronic</a></li>
-                <li class="border-white"><a href="#">Home & Kitchen</a></li>
-                <li class="border-white"><a href="#">Fashion</a></li>
-                <li class="border-white"><a href="#">Book</a></li>
+                <li class="border-white"><a href="#" data-category="all">Best Sellers</a></li>
+                <li class="border-white"><a href="#" data-scroll="today-deals">Today's Deals</a></li>
+                <li class="border-white"><a href="#" data-category="mobiles">Mobiles</a></li>
+                <li class="border-white"><a href="#" data-scroll="footer-help">Customer Service</a></li>
+                <li class="border-white"><a href="#" data-category="electronics">Electronics</a></li>
+                <li class="border-white"><a href="#" data-category="home">Home &amp; Kitchen</a></li>
+                <li class="border-white"><a href="#" data-category="fashion">Fashion</a></li>
+                <li class="border-white"><a href="#" data-category="books">Books</a></li>
                 <li class="border-white prime-image-hover">
                     <a href="#">Prime</a>
                     <div class="prime-image">
-                        <img
+                        <img alt="Amazon Prime benefits"
                             src="https://m.media-amazon.com/images/G/31/prime/NavFlyout/TryPrime/2018/Apr/IN-Prime-PIN-TryPrime-MultiBen-Apr18-400x400._CB442254244_.jpg" />
                     </div>
-
                 </li>
             </ul>
             <div class="nav-right-image-amazon-prime">
-                <img
+                <img alt="Watch entertainment for free"
                     src="https://m.media-amazon.com/images/G/31/img17/Home/AmazonTV/Ravina/Desktop/Watch-Entertainment-for-FREE_400-x39._CB605460886_.jpg" />
             </div>
         </div>
@@ -110,387 +137,495 @@
         <div class="sidebar-left-part">
             <div class="sidebar-top">
                 <i class="fa-solid fa-circle-user"></i>
-                <h2>Hello, <span>sign in</span></h2>
+                <h2>Hello, <span id="sidebar-account-name">sign in</span></h2>
             </div>
             <div class="sidebar-wrap">
                 <div class="sidebar-item">
                     <h2>Trending</h2>
-                    <p>Best Sellers</p>
-                    <p>New Releases</p>
-                    <p>Movers and Shakers</p>
-                </div>
-                <div class="sidebar-item">
-                    <h2>Digital Content And Devices</h2>
-                    <p>Echo & Alexa</p>
-                    <p>Fire TV</p>
-                    <p>Kindle E-Readers & eBooks</p>
-                    <p>Audible Audiobooks</p>
-                    <p>Amazon Prime Video</p>
-                    <p>Amazon Prime Music</p>
+                    <p><a href="#" data-category="all">Best Sellers</a></p>
+                    <p><a href="#" data-category="all">New Releases</a></p>
+                    <p><a href="#" data-scroll="today-deals">Movers and Shakers</a></p>
                 </div>
                 <div class="sidebar-item">
                     <h2>Shop By Category</h2>
-                    <p>Mobiles, Computes</p>
-                    <p>TV, Appliances, Electronic</p>
-                    <p>Men's Fashion</p>
-                    <p>Women's Fashion</p>
-                    <p>See All</p>
+                    <p><a href="#" data-category="mobiles">Mobiles, Computers</a></p>
+                    <p><a href="#" data-category="electronics">TV, Appliances, Electronics</a></p>
+                    <p><a href="#" data-category="fashion">Men's Fashion</a></p>
+                    <p><a href="#" data-category="fashion">Women's Fashion</a></p>
+                    <p><a href="#" data-category="home">Home &amp; Kitchen</a></p>
+                    <p><a href="#" data-category="books">Books</a></p>
+                    <p><a href="#" data-category="beauty">Beauty</a></p>
+                    <p><a href="#" data-category="sports">Sports</a></p>
+                    <p><a href="#" data-category="toys">Toys</a></p>
+                    <p><a href="#" data-category="all">See All</a></p>
                 </div>
                 <div class="sidebar-item">
-                    <h2>Programs & Features</h2>
-                    <p>Gift Cards & Mobile Recharges</p>
-                    <p>Flight Tickets</p>
-                    <p>#Foundlt-OnAmazon</p>
-                    <p>Clearance store</p>
-                </div>
-                <div class="sidebar-item">
-                    <h2>Help & Settings</h2>
-                    <p>Your Account</p>
-                    <p>Customer Service</p>
-                    <p>Sign in</p>
+                    <h2>Help &amp; Settings</h2>
+                    <p><a href="#" id="sidebar-account-link">Your Account</a></p>
+                    <p><a href="#" id="sidebar-orders-link">Your Orders</a></p>
+                    <p><a href="#" id="sidebar-wishlist-link">Your Wishlist</a></p>
+                    <p><a href="#" id="sidebar-signin-link">Sign in</a></p>
                 </div>
             </div>
         </div>
-        <button id="sidebar-navigation-close">
+        <button id="sidebar-navigation-close" aria-label="Close menu">
             <i class="fa-solid fa-xmark"></i>
         </button>
     </div>
 
+    <main id="main-content">
 
+        <!-- ============ HOME VIEW ============ -->
+        <div id="view-home" class="view">
 
+            <!--image slider -->
+            <section aria-roledescription="carousel" aria-label="Promotions">
+                <div class="image-container" id="hero-carousel">
+                    <div class="image-list" id="hero-image-list">
+                        <div class="image-item">
+                            <img src="https://m.media-amazon.com/images/I/71cp9PVuTfL._SX3000_.jpg" alt="" />
+                            <div class="hero-caption">
+                                <h2>Everyday Essentials</h2>
+                                <p>Shop products starting from &#8377;149</p>
+                                <a href="#" class="hero-cta" data-category="home">Shop Now</a>
+                            </div>
+                        </div>
+                        <div class="image-item">
+                            <img src="https://m.media-amazon.com/images/I/61GnAucagBL._SX3000_.png" alt="" />
+                            <div class="hero-caption">
+                                <h2>Latest Mobiles</h2>
+                                <p>Top brands, best prices</p>
+                                <a href="#" class="hero-cta" data-category="mobiles">Shop Now</a>
+                            </div>
+                        </div>
+                        <div class="image-item">
+                            <img src="https://m.media-amazon.com/images/I/71qlKqpJnlL._SX3000_.jpg" alt="" />
+                            <div class="hero-caption">
+                                <h2>Fashion Refresh</h2>
+                                <p>New styles for the season</p>
+                                <a href="#" class="hero-cta" data-category="fashion">Shop Now</a>
+                            </div>
+                        </div>
+                        <div class="image-item">
+                            <img src="https://m.media-amazon.com/images/I/71cQMXCLSvL._SX3000_.jpg" alt="" />
+                            <div class="hero-caption">
+                                <h2>Home Makeover</h2>
+                                <p>Up to 60% off furniture</p>
+                                <a href="#" class="hero-cta" data-category="home">Shop Now</a>
+                            </div>
+                        </div>
+                        <div class="image-item">
+                            <img src="https://m.media-amazon.com/images/I/61aURrton0L._SX3000_.jpg" alt="" />
+                            <div class="hero-caption">
+                                <h2>Electronics Sale</h2>
+                                <p>Deals on gadgets you love</p>
+                                <a href="#" class="hero-cta" data-category="electronics">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
 
-    <!--image slider -->
-    <section>
-        <div class="image-container">
-            <div class="image-list">
-                <div class="image-item">
-                    <img src="https://m.media-amazon.com/images/I/71cp9PVuTfL._SX3000_.jpg" />
+                    <div class="image-btn-container">
+                        <button class="slider-btn" id="slide-btn-left" aria-label="Previous slide"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="slider-btn" id="slide-btn-right" aria-label="Next slide"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    <div class="hero-dots" id="hero-dots" role="tablist" aria-label="Slides"></div>
                 </div>
-                <div class="image-item">
-                    <img src="https://m.media-amazon.com/images/I/61GnAucagBL._SX3000_.png" />
-                </div>
-                <div class="image-item">
-                    <img src="https://m.media-amazon.com/images/I/71qlKqpJnlL._SX3000_.jpg" />
-                </div>
-                <div class="image-item">
-                    <img src="https://m.media-amazon.com/images/I/71cQMXCLSvL._SX3000_.jpg" />
-                </div>
-                <div class="image-item">
-                    <img src="https://m.media-amazon.com/images/I/61aURrton0L._SX3000_.jpg" />
-                </div>
-                <div class="image-item">
-                    <img src="https://m.media-amazon.com/images/I/61O72XhcEkL._SX3000_.jpg" />
-                </div>
-                <div class="image-item">
-                    <img src="https://m.media-amazon.com/images/I/61VuJdpjvaL._SX3000_.jpg" />
-                </div>
-                <div class="image-item">
-                    <img src="https://m.media-amazon.com/images/I/61UrRx+3LLL._SX3000_.jpg" />
-                </div>
-            </div>
+            </section>
 
-            <div class="image-btn-container">
+            <div class="main">
+                <!--category cards-->
+                <section class="category-section container">
+                    <h2 class="section-title">Shop by Category</h2>
+                    <div class="category-grid" id="category-grid"></div>
+                </section>
 
-                <button class="slider-btn" id="slide-btn-left"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="slider-btn" id="slide-btn-right"><i class="fa-solid fa-chevron-right"></i></i></button>
-            </div>
-        </div>
-    </section>
+                <!--promotional grid-->
+                <section class="card-product-container container" id="promo-grid-1"></section>
+                <section class="card-product-container container productBackgraound" id="promo-grid-2"></section>
 
+                <!--today's deals -->
+                <section class="today_deals_container" id="today-deals">
+                    <div class="today_deals_heading">
+                        <h1>Today's Deals</h1>
+                        <p><a href="#" data-category="all" data-sort="discount">See all deals</a></p>
+                    </div>
 
-    <!--product container card-->
-    <main class="main">
-        <div class="card-product-container container">
-            <div class="card-product">
-                <h2>Up to 60% off | Styles for Men</h2>
-                <div class="card-product-nested-card">
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Fashion/Gateway/BAU/BTF-Refresh/May/PF_MF/MF-1-186-116._SY116_CB636110853_.jpg" />
-                        <p>clothing</p>
+                    <div class="today_deals_product_container">
+                        <div class="today_deals_btn_container">
+                            <button class="today_deal_btn" id="today_deal_btn_prev" aria-label="Previous deals">
+                                <i class="fa-solid fa-angle-left"></i>
+                            </button>
+                            <button class="today_deal_btn" id="today_deal_btn_next" aria-label="Next deals">
+                                <i class="fa-solid fa-angle-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="today_deals_product_list" id="today-deals-list"></div>
                     </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Fashion/Gateway/BAU/BTF-Refresh/May/PF_MF/MF-3-186-116._SY116_CB636110853_.jpg" />
-                        <p>Footwear</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_3._SY116_CB606110532_.jpg" />
-                        <p>Watches</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Fashion/Gateway/BAU/BTF-Refresh/May/PF_MF/MF-4-186-116._SY116_CB636110853_.jpg" />
-                        <p>Bags & language</p>
-                    </div>
-                </div>
-                <button class="card-product-btn">see more</button>
-            </div>
-            <div class="card-product">
-                <h2>Redefine your living room</h2>
-                <div class="card-product-nested-card">
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Furniture/furniture_node_1/372_232_03_low._SY116_CB605507312_.jpg" />
-                        <p>Sofa cum beds</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Furniture/furniture_node_1/372_232_04_low._SY116_CB605507312_.jpg" />
-                        <p>Office chairs & study</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Furniture/furniture_node_1/372_232_01_low._SY116_CB605507312_.jpg" />
-                        <p>Bean bags</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Furniture/furniture_node_1/372_232_02_low._SY116_CB605507312_.jpg" />
-                        <p>Explore all</p>
-                    </div>
-                </div>
-                <button class="card-product-btn">Visit our furniture store</button>
-            </div>
-            <div class="card-product">
-                <h2>Top rated, premium quality | Amazon Brands &</h2>
-                <div class="card-product-nested-card">
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_1._SY116_CB606110532_.jpg" />
-                        <p>Home Products</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_5._SY116_CB606110532_.jpg" />
-                        <p>Furniture</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_3._SY116_CB606110532_.jpg" />
-                        <p>Daily essentials</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_8._SY116_CB606110532_.jpg" />
-                        <p>Fashion</p>
-                    </div>
-                </div>
-                <button class="card-product-btn">see more</button>
-            </div>
-            <div class="card-product">
-                <h2>Top rated, premium quality | Amazon Brands &</h2>
-                <div class="card-product-nested-card">
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_1._SY116_CB606110532_.jpg" />
-                        <p>Home Products</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_5._SY116_CB606110532_.jpg" />
-                        <p>Furniture</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_3._SY116_CB606110532_.jpg" />
-                        <p>Daily essentials</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_8._SY116_CB606110532_.jpg" />
-                        <p>Fashion</p>
-                    </div>
-                </div>
-                <button class="card-product-btn">see more</button>
+                </section>
             </div>
         </div>
 
-        <div class="card-product-container container productBackgraound">
-            <div class="card-product">
-                <h2>Top rated, premium quality | Amazon Brands &</h2>
-                <div class="card-product-nested-card">
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_1._SY116_CB606110532_.jpg" />
-                        <p>Home Products</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_5._SY116_CB606110532_.jpg" />
-                        <p>Furniture</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_3._SY116_CB606110532_.jpg" />
-                        <p>Daily essentials</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_8._SY116_CB606110532_.jpg" />
-                        <p>Fashion</p>
-                    </div>
-                </div>
-                <button class="card-product-btn">see more</button>
-            </div>
-            <div class="card-product">
-                <h2>Top rated, premium quality | Amazon Brands &</h2>
-                <div class="card-product-nested-card">
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_1._SY116_CB606110532_.jpg" />
-                        <p>Home Products</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_5._SY116_CB606110532_.jpg" />
-                        <p>Furniture</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_3._SY116_CB606110532_.jpg" />
-                        <p>Daily essentials</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_8._SY116_CB606110532_.jpg" />
-                        <p>Fashion</p>
-                    </div>
-                </div>
-                <button class="card-product-btn">see more</button>
-            </div>
-            <div class="card-product">
-                <h2>Top rated, premium quality | Amazon Brands &</h2>
-                <div class="card-product-nested-card">
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_1._SY116_CB606110532_.jpg" />
-                        <p>Home Products</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_5._SY116_CB606110532_.jpg" />
-                        <p>Furniture</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_3._SY116_CB606110532_.jpg" />
-                        <p>Daily essentials</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_8._SY116_CB606110532_.jpg" />
-                        <p>Fashion</p>
-                    </div>
-                </div>
-                <button class="card-product-btn">see more</button>
-            </div>
-            <div class="card-product">
-                <h2>Top rated, premium quality | Amazon Brands &</h2>
-                <div class="card-product-nested-card">
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_1._SY116_CB606110532_.jpg" />
-                        <p>Home Products</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_5._SY116_CB606110532_.jpg" />
-                        <p>Furniture</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_3._SY116_CB606110532_.jpg" />
-                        <p>Daily essentials</p>
-                    </div>
-                    <div class="card-nested">
-                        <img
-                            src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/BAU/Oct/186X116_8._SY116_CB606110532_.jpg" />
-                        <p>Fashion</p>
-                    </div>
-                </div>
-                <button class="card-product-btn">see more</button>
-            </div>
-        </div>
-
-    
-    <!--today's deals -->
-    <section class="today_deals_container">
-        <div class="today_deals_heading">
-            <h1>Today's Deals</h1>
-            <p><a href="#">See all deals</a></p>
-        </div>
-
-        <div class="today_deals_product_container">
-            <div class="today_deals_btn_container">
-                <button  class="today_deal_btn" id="today_deal_btn_prev">
-                    <i class="fa-solid fa-angle-left"></i>
-                </button>
-                <button class="today_deal_btn" id="today_deal_btn_next">
-                    <i class="fa-solid fa-angle-right"></i>
-                </button>
-            </div>
-
-            <div class="today_deals_product_list">
-                <div class="today_deals_product_item">
-                    <img src="https://m.media-amazon.com/images/I/411mbYGYIdL._AC_SY200_.jpg"/>
-                    <div class="discount_Contaienr">
-                        <a href="#">Up to 52% off</a>
-                        <a href="#">Deal of the day</a>
-                    </div>
-                    <p>adidas and Campus Footwear</p>
-                </div>
-
-                <div class="today_deals_product_item">
-                    <img src="https://m.media-amazon.com/images/I/411mbYGYIdL._AC_SY200_.jpg"/>
-                    <div class="discount_Contaienr">
-                        <a href="#">Up to 52% off</a>
-                        <a href="#">Deal of the day</a>
-                    </div>
-                    <p>adidas and Campus Footwear</p>
-                </div>
-
-                <div class="today_deals_product_item">
-                    <img src="https://m.media-amazon.com/images/I/411mbYGYIdL._AC_SY200_.jpg"/>
-                    <div class="discount_Contaienr">
-                        <a href="#">Up to 52% off</a>
-                        <a href="#">Deal of the day</a>
-                    </div>
-                    <p>adidas and Campus Footwear</p>
-                </div>
-
-                <div class="today_deals_product_item">
-                    <img src="https://m.media-amazon.com/images/I/411mbYGYIdL._AC_SY200_.jpg"/>
-                    <div class="discount_Contaienr">
-                        <a href="#">Up to 52% off</a>
-                        <a href="#">Deal of the day</a>
-                    </div>
-                    <p>adidas and Campus Footwear</p>
-                </div>
-
-                <div class="today_deals_product_item">
-                    <img src="https://m.media-amazon.com/images/I/411mbYGYIdL._AC_SY200_.jpg"/>
-                    <div class="discount_Contaienr">
-                        <a href="#">Up to 52% off</a>
-                        <a href="#">Deal of the day</a>
-                    </div>
-                    <p>adidas and Campus Footwear</p>
+        <!-- ============ SEARCH / CATEGORY RESULTS VIEW ============ -->
+        <section id="view-results" class="view container results-view" hidden>
+            <div class="results-header">
+                <h1 id="results-title">Results</h1>
+                <div class="results-toolbar">
+                    <label for="sort-select">Sort by</label>
+                    <select id="sort-select">
+                        <option value="relevance">Relevance</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="rating">Avg. Customer Rating</option>
+                        <option value="newest">Newest</option>
+                        <option value="discount">Biggest Discount</option>
+                        <option value="popularity">Popularity</option>
+                    </select>
                 </div>
             </div>
-        </div>
-    </section>
+
+            <div class="results-body">
+                <aside class="filters-panel" aria-label="Filters">
+                    <div class="filters-head">
+                        <h2>Filters</h2>
+                        <button id="clear-filters-btn" class="link-btn">Clear All</button>
+                    </div>
+
+                    <div class="filter-group">
+                        <h3>Category</h3>
+                        <div id="filter-category"></div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h3>Brand</h3>
+                        <div id="filter-brand"></div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h3>Price</h3>
+                        <label for="price-max">Up to &#8377;<span id="price-max-label">100000</span></label>
+                        <input type="range" id="price-max" min="0" max="100000" step="500" value="100000" />
+                    </div>
+
+                    <div class="filter-group">
+                        <h3>Customer Rating</h3>
+                        <div id="filter-rating"></div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h3>Discount</h3>
+                        <div id="filter-discount"></div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h3>Availability</h3>
+                        <label><input type="checkbox" id="filter-instock" /> In Stock only</label>
+                    </div>
+                </aside>
+
+                <div class="results-main">
+                    <p class="results-count" id="results-count"></p>
+                    <div class="product-grid" id="results-grid"></div>
+                    <div class="empty-state" id="results-empty" hidden>
+                        <i class="fa-solid fa-magnifying-glass-minus"></i>
+                        <h2>No products found</h2>
+                        <p>Try another search or remove some filters.</p>
+                        <button class="primary-btn" id="results-clear-filters-btn">Clear Filters</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CART VIEW ============ -->
+        <section id="view-cart" class="view container page-view" hidden>
+            <h1>Your Cart</h1>
+            <div class="cart-layout">
+                <div class="cart-items" id="cart-items"></div>
+                <aside class="cart-summary" id="cart-summary">
+                    <h2>Order Summary</h2>
+                    <div class="summary-row"><span>Subtotal</span><span id="cart-subtotal">&#8377;0</span></div>
+                    <div class="summary-row"><span>Delivery</span><span id="cart-delivery">Free</span></div>
+                    <div class="summary-row total"><span>Total</span><span id="cart-total">&#8377;0</span></div>
+                    <button class="primary-btn full-width" id="checkout-btn">Proceed to Checkout</button>
+                </aside>
+            </div>
+            <div class="empty-state" id="cart-empty" hidden>
+                <i class="fa-solid fa-cart-shopping"></i>
+                <h2>Your Cart is Empty</h2>
+                <p>Start shopping and add products to your cart.</p>
+                <button class="primary-btn" id="cart-start-shopping-btn">Start Shopping</button>
+            </div>
+        </section>
+
+        <!-- ============ WISHLIST VIEW ============ -->
+        <section id="view-wishlist" class="view container page-view" hidden>
+            <h1>Your Wishlist</h1>
+            <div class="product-grid" id="wishlist-grid"></div>
+            <div class="empty-state" id="wishlist-empty" hidden>
+                <i class="fa-regular fa-heart"></i>
+                <h2>Your Wishlist is Empty</h2>
+                <p>Save items you love so you can find them later.</p>
+                <button class="primary-btn" id="wishlist-start-shopping-btn">Start Shopping</button>
+            </div>
+        </section>
+
+        <!-- ============ ORDERS VIEW ============ -->
+        <section id="view-orders" class="view container page-view" hidden>
+            <h1>Your Orders</h1>
+            <div id="orders-list"></div>
+            <div class="empty-state" id="orders-empty" hidden>
+                <i class="fa-solid fa-box-open"></i>
+                <h2>No orders yet</h2>
+                <p>Orders you place will show up here.</p>
+                <button class="primary-btn" id="orders-start-shopping-btn">Start Shopping</button>
+            </div>
+        </section>
 
     </main>
 
+    <!-- ============ PRODUCT DETAILS MODAL ============ -->
+    <div class="modal-overlay" id="product-modal-overlay" hidden>
+        <div class="modal product-modal" role="dialog" aria-modal="true" aria-labelledby="pm-title">
+            <button class="modal-close" data-close-modal="product-modal-overlay" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="product-modal-body"></div>
+        </div>
+    </div>
 
-    
+    <!-- ============ ACCOUNT MODAL (LOGIN / SIGNUP) ============ -->
+    <div class="modal-overlay" id="account-modal-overlay" hidden>
+        <div class="modal account-modal" role="dialog" aria-modal="true" aria-labelledby="account-modal-title">
+            <button class="modal-close" data-close-modal="account-modal-overlay" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
 
+            <div id="account-signed-out">
+                <div class="account-tabs">
+                    <button class="account-tab active" data-tab="login" id="tab-login">Sign In</button>
+                    <button class="account-tab" data-tab="signup" id="tab-signup">Create Account</button>
+                </div>
 
+                <form id="login-form" class="account-form">
+                    <h2 id="account-modal-title">Sign In</h2>
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required />
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required minlength="4" />
+                    <p class="form-error" id="login-error" hidden></p>
+                    <button type="submit" class="primary-btn full-width">Sign In</button>
+                    <p class="form-note">Demo authentication only — stored in your browser, not a real account system.</p>
+                </form>
 
+                <form id="signup-form" class="account-form" hidden>
+                    <h2>Create Account</h2>
+                    <label for="signup-name">Name</label>
+                    <input type="text" id="signup-name" required />
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" required />
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" required minlength="4" />
+                    <label for="signup-confirm">Confirm Password</label>
+                    <input type="password" id="signup-confirm" required minlength="4" />
+                    <p class="form-error" id="signup-error" hidden></p>
+                    <button type="submit" class="primary-btn full-width">Create Account</button>
+                    <p class="form-note">Demo authentication only — stored in your browser, not a real account system.</p>
+                </form>
+            </div>
 
+            <div id="account-signed-in" hidden>
+                <h2>Hello, <span id="account-modal-name"></span></h2>
+                <ul class="account-menu">
+                    <li><button data-view-link="view-orders">Your Orders</button></li>
+                    <li><button data-view-link="view-wishlist">Your Wishlist</button></li>
+                    <li><button id="signout-btn">Sign Out</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
+    <!-- ============ LOCATION MODAL ============ -->
+    <div class="modal-overlay" id="location-modal-overlay" hidden>
+        <div class="modal small-modal" role="dialog" aria-modal="true" aria-labelledby="location-modal-title">
+            <button class="modal-close" data-close-modal="location-modal-overlay" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h2 id="location-modal-title">Choose your location</h2>
+            <label for="pincode-input">Enter a delivery pincode</label>
+            <input type="text" id="pincode-input" inputmode="numeric" maxlength="6" placeholder="e.g. 302001" />
+            <p class="form-error" id="pincode-error" hidden></p>
+            <button class="primary-btn full-width" id="pincode-save-btn">Apply</button>
+        </div>
+    </div>
 
+    <!-- ============ LANGUAGE MODAL ============ -->
+    <div class="modal-overlay" id="language-modal-overlay" hidden>
+        <div class="modal small-modal" role="dialog" aria-modal="true" aria-labelledby="language-modal-title">
+            <button class="modal-close" data-close-modal="language-modal-overlay" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h2 id="language-modal-title">Choose a language</h2>
+            <div class="language-options">
+                <button class="language-option active" data-lang="English">English</button>
+                <button class="language-option" data-lang="हिन्दी">हिन्दी</button>
+                <button class="language-option" data-lang="தமிழ்">தமிழ்</button>
+                <button class="language-option" data-lang="বাংলা">বাংলা</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ CHECKOUT MODAL ============ -->
+    <div class="modal-overlay" id="checkout-modal-overlay" hidden>
+        <div class="modal checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+            <button class="modal-close" data-close-modal="checkout-modal-overlay" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h2 id="checkout-title">Checkout</h2>
+
+            <div class="checkout-steps" id="checkout-steps">
+                <span class="step active" data-step="1">1. Address</span>
+                <span class="step" data-step="2">2. Delivery</span>
+                <span class="step" data-step="3">3. Payment</span>
+                <span class="step" data-step="4">4. Review</span>
+            </div>
+
+            <!-- step 1 -->
+            <form class="checkout-panel" data-panel="1" id="checkout-panel-1">
+                <label for="co-name">Full Name</label>
+                <input type="text" id="co-name" required />
+                <label for="co-mobile">Mobile Number</label>
+                <input type="tel" id="co-mobile" pattern="[0-9]{10}" maxlength="10" required />
+                <label for="co-pincode">PIN Code</label>
+                <input type="text" id="co-pincode" pattern="[0-9]{6}" maxlength="6" required />
+                <div class="form-row">
+                    <div>
+                        <label for="co-city">City</label>
+                        <input type="text" id="co-city" required />
+                    </div>
+                    <div>
+                        <label for="co-state">State</label>
+                        <input type="text" id="co-state" required />
+                    </div>
+                </div>
+                <label for="co-address">Address</label>
+                <textarea id="co-address" rows="2" required></textarea>
+                <p class="form-error" id="co-address-error" hidden></p>
+                <button type="submit" class="primary-btn full-width">Continue to Delivery</button>
+            </form>
+
+            <!-- step 2 -->
+            <div class="checkout-panel" data-panel="2" hidden>
+                <div class="delivery-option selected" data-speed="standard">
+                    <strong>Standard Delivery</strong>
+                    <span>Arrives in 4–6 business days &middot; Free</span>
+                </div>
+                <div class="delivery-option" data-speed="express">
+                    <strong>Express Delivery</strong>
+                    <span>Arrives in 1–2 business days &middot; &#8377;99</span>
+                </div>
+                <div class="checkout-actions">
+                    <button class="secondary-btn" data-back-step="1">Back</button>
+                    <button class="primary-btn" data-next-step="3">Continue to Payment</button>
+                </div>
+            </div>
+
+            <!-- step 3 -->
+            <div class="checkout-panel" data-panel="3" hidden>
+                <div class="payment-option selected" data-pay="cod">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                    <div>
+                        <strong>Cash on Delivery</strong>
+                        <span>Pay when your order arrives</span>
+                    </div>
+                </div>
+                <div class="payment-option" data-pay="card">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <div>
+                        <strong>Demo Card</strong>
+                        <span>Frontend-only demo &mdash; no real card is charged</span>
+                    </div>
+                </div>
+                <div class="payment-option" data-pay="upi">
+                    <i class="fa-solid fa-mobile-screen"></i>
+                    <div>
+                        <strong>Demo UPI</strong>
+                        <span>Frontend-only demo &mdash; no real payment is made</span>
+                    </div>
+                </div>
+                <p class="form-note">This checkout is a frontend demo only. No real payment is processed.</p>
+                <div class="checkout-actions">
+                    <button class="secondary-btn" data-back-step="2">Back</button>
+                    <button class="primary-btn" data-next-step="4">Review Order</button>
+                </div>
+            </div>
+
+            <!-- step 4 -->
+            <div class="checkout-panel" data-panel="4" hidden>
+                <div id="checkout-review"></div>
+                <div class="checkout-actions">
+                    <button class="secondary-btn" data-back-step="3">Back</button>
+                    <button class="primary-btn" id="place-order-btn">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ ORDER CONFIRMATION MODAL ============ -->
+    <div class="modal-overlay" id="confirmation-modal-overlay" hidden>
+        <div class="modal small-modal confirmation-modal" role="dialog" aria-modal="true" aria-labelledby="confirmation-title">
+            <div class="confirmation-check"><i class="fa-solid fa-circle-check"></i></div>
+            <h2 id="confirmation-title">Order placed successfully</h2>
+            <p>Order ID: <strong id="confirmation-order-id"></strong></p>
+            <p>Total: <strong id="confirmation-total"></strong></p>
+            <p>Estimated delivery: <strong id="confirmation-delivery"></strong></p>
+            <button class="primary-btn full-width" id="confirmation-continue-btn">Continue Shopping</button>
+        </div>
+    </div>
+
+    <!-- ============ BACK TO TOP ============ -->
+    <button id="back-to-top" aria-label="Back to top" hidden>
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer" id="footer-help">
+        <button class="footer-back-to-top" id="footer-back-to-top">Back to top</button>
+        <div class="footer-columns container">
+            <div class="footer-col">
+                <h3>Get to Know Us</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Developer</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Connect With Us</h3>
+                <ul>
+                    <li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+                    <li><a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a></li>
+                    <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Shopping</h3>
+                <ul>
+                    <li><a href="#" data-category="all">Categories</a></li>
+                    <li><a href="#" data-scroll="today-deals">Deals</a></li>
+                    <li><a href="#" data-category="all" data-sort="newest">New Arrivals</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Help</h3>
+                <ul>
+                    <li><a href="#">Customer Service</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-note">This is a demo project inspired by e-commerce sites. Not affiliated with Amazon. All checkout and payment flows are simulated.</p>
+    </footer>
 
     <script src="javascript.js" type="module"></script>
 </body>
